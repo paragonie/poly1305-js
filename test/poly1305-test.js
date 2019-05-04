@@ -2,6 +2,7 @@
 
 const assert = require('assert');
 const expect = require('chai').expect;
+const crypto = require('crypto');
 const Poly1305 = require('../lib/poly1305');
 
 describe('Poly1305', function () {
@@ -41,5 +42,15 @@ describe('Poly1305', function () {
         expect('f3ffc7703f9400e52a7dfb4b3d3305d9').to.be.equal(
             (await auth.finish()).toString('hex')
         );
+    });
+
+    it('onetimeauth API', async function () {
+        crypto.randomBytes(32, async function(err, key) {
+            if (err) throw err;
+            let message = 'This is a test message';
+            let mac = await Poly1305.onetimeauth(message, key);
+            expect(await Poly1305.onetimeauth_verify(message, key, mac)).to.be.equal(true);
+        });
+
     });
 });
