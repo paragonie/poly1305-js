@@ -44,6 +44,19 @@ describe('Poly1305', function () {
         );
     });
 
+    it('Test cloning', async function() {
+        crypto.randomBytes(32, async function(err, key) {
+            if (err) throw err;
+            let poly = new Poly1305(key);
+            poly.update(Buffer.from('This is part 1\n'));
+            let clone = poly.clone();
+            clone.update(Buffer.from('This is part 2\n'));
+            let tag0 = poly.finish();
+            let tag1 = clone.finish();
+            expect(tag0.toString('hex')).to.not.equal(tag1.toString('hex'));
+        });
+    });
+
     it('onetimeauth API', async function () {
         crypto.randomBytes(32, async function(err, key) {
             if (err) throw err;
