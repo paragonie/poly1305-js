@@ -62,6 +62,28 @@ describe('Poly1305', function () {
         expect('f3ffc7703f9400e52a7dfb4b3d3305d9').to.be.equal(
             (await auth.finish()).toString('hex')
         );
+        auth = new Poly1305(Buffer.from('0870c74dd1f04a7494a8b202032ddc60191fe6bfd8e3932989ad7322e1b2c9ec', 'hex'))
+        await auth.update(Buffer.from('6e61636c3a00000000000000000000000000000000cf2f29c233fa9e87f0e3d8688331b1e6b6ceebeeb69de2a4000000994075709e2736558b42bac84b29200d323916daa3b5bfdb18c9eeaa48f800002d000000000000001e00000000000000', 'hex'));
+        expect('5cf393a42f0f5798d00d3dc582193782').to.be.equal((await auth.finish()).toString('hex'));
+
+        auth = new Poly1305(Buffer.from('0870c74dd1f04a7494a8b202032ddc60191fe6bfd8e3932989ad7322e1b2c9ec', 'hex'));
+        // header
+        await auth.update(Buffer.from('6e61636c3a', 'hex'));
+        // salt
+        await auth.update(Buffer.from('00000000000000000000000000000000', 'hex'));
+        // nonce
+        await auth.update(Buffer.from('cf2f29c233fa9e87f0e3d8688331b1e6b6ceebeeb69de2a4', 'hex'));
+        // padding
+        await auth.update(Buffer.from('000000', 'hex'));
+        // ciphertext
+        await auth.update(Buffer.from('994075709e2736558b42bac84b29200d323916daa3b5bfdb18c9eeaa48f8', 'hex'));
+        // padding
+        await auth.update(Buffer.from('0000', 'hex'));
+        // adlen
+        await auth.update(Buffer.from('2d00000000000000', 'hex'));
+        // len
+        await auth.update(Buffer.from('1e00000000000000', 'hex'));
+        expect('5cf393a42f0f5798d00d3dc582193782').to.be.equal((await auth.finish()).toString('hex'));
     });
 
     it('Test cloning', async function() {
