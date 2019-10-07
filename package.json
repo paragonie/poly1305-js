@@ -1,6 +1,6 @@
 {
   "name": "poly1305-js",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "description": "Javascript implementations of Poly1305",
   "main": "index.js",
   "scripts": {
