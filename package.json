@@ -1,29 +1,26 @@
 {
   "name": "poly1305-js",
-  "version": "0.4.1",
+  "version": "0.4.2",
   "description": "Javascript implementations of Poly1305",
   "main": "index.js",
   "scripts": {
     "test": "mocha"
   },
   "keywords": [
-    "chacha20",
-    "xchacha20",
-    "hchacha20",
     "cryptography",
     "crypto",
-    "stream",
-    "cipher"
+    "message authentication code",
+    "poly1305",
+    "one-time authentication"
   ],
   "repository": "https://github.com/paragonie/poly1305-js",
   "devDependencies": {
-    "assert": "^1.4.1",
+    "assert": "^2.0.0",
     "chai": "^4.2.0",
-    "mocha": "^6.1.4"
+    "mocha": "^6.2.1"
   },
   "dependencies": {
-    "big-integer": "^1.6.43",
-    "typedarray-to-buffer": "^3.1.5"
+    "big-integer": "^1.6.47"
   },
   "author": "Paragon Initiative Enterprises",
   "license": "ISC"
