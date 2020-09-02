@@ -1,6 +1,6 @@
 {
   "name": "poly1305-js",
-  "version": "0.4.2",
+  "version": "0.4.3",
   "description": "Javascript implementations of Poly1305",
   "main": "index.js",
   "scripts": {
@@ -17,10 +17,10 @@
   "devDependencies": {
     "assert": "^2.0.0",
     "chai": "^4.2.0",
-    "mocha": "^6.2.1"
+    "mocha": "^8.1.3"
   },
   "dependencies": {
-    "big-integer": "^1.6.47"
+    "big-integer": "^1.6.48"
   },
   "author": "Paragon Initiative Enterprises",
   "license": "ISC"
