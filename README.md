@@ -1,6 +1,6 @@
 # Poly1305 (JavaScript)
 
-[![Travis CI](https://travis-ci.org/paragonie/poly1305-js.svg?branch=master)](https://travis-ci.org/paragonie/poly1305-js)
+[![Build Status](https://github.com/paragonie/poly1305-js/actions/workflows/ci.yml/badge.svg)](https://github.com/paragonie/poly1305-js/actions)
 [![npm version](https://img.shields.io/npm/v/poly1305-js.svg)](https://npm.im/poly1305-js)
 
 This is a pure JavaScript implementation of Poly1305.
